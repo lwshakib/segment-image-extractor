@@ -1,5 +1,8 @@
 {
   "name": "segment-image-extractor",
+  "description": "A powerful Chrome extension that extracts, analyzes, and manages images from web pages with advanced filtering, sorting, and bulk download capabilities.",
+  "extension_name": "Segment - Image Extractor",
+  "extension_description": "Segment lets you extract images from any webpage and automatically segment them for easy organization and download",
   "type": "module",
   "version": "1.0.0",
   "private": true,
