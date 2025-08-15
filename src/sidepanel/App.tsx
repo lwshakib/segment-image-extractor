@@ -424,33 +424,33 @@ export default function App() {
 
   // Loading skeleton component
   const LoadingSkeleton = () => (
-    <div className="p-4 bg-background min-h-screen">
+    <div className="p-2 sm:p-4 bg-background min-h-screen">
       {/* Header skeleton */}
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex justify-between items-center mb-4 sm:mb-6">
         <div></div>
         <div className="flex items-center gap-2">
-          <Skeleton className="h-9 w-9 rounded-md" />
-          <Skeleton className="h-9 w-9 rounded-md" />
+          <Skeleton className="h-8 w-8 sm:h-9 sm:w-9 rounded-md" />
+          <Skeleton className="h-8 w-8 sm:h-9 sm:w-9 rounded-md" />
         </div>
       </div>
 
       {/* Filters skeleton */}
-      <div className="flex flex-wrap items-center gap-4 mb-4 p-3 bg-card rounded-lg">
-        <div className="flex items-center gap-2">
+      <div className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-2 sm:gap-4 mb-4 p-3 bg-card rounded-lg">
+        <div className="flex items-center gap-2 w-full sm:w-auto">
           <Skeleton className="h-4 w-12" />
-          <Skeleton className="h-9 w-[140px]" />
+          <Skeleton className="h-8 w-full sm:w-[140px]" />
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 w-full sm:w-auto">
           <Skeleton className="h-4 w-10" />
-          <Skeleton className="h-9 w-[120px]" />
+          <Skeleton className="h-8 w-full sm:w-[120px]" />
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 w-full sm:w-auto">
           <Skeleton className="h-4 w-8" />
-          <Skeleton className="h-9 w-[140px]" />
+          <Skeleton className="h-8 w-full sm:w-[140px]" />
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 w-full sm:w-auto">
           <Skeleton className="h-4 w-12" />
-          <Skeleton className="h-9 w-[100px]" />
+          <Skeleton className="h-8 w-full sm:w-[100px]" />
         </div>
       </div>
 
@@ -464,17 +464,17 @@ export default function App() {
       </div>
 
       {/* Image grid skeleton */}
-      <div className="columns-2 sm:columns-3 md:columns-4 lg:columns-5 gap-4 space-y-4">
+      <div className="columns-2 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-3 sm:gap-4 space-y-3 sm:space-y-4">
         {Array.from({ length: 12 }).map((_, index) => (
           <div
             key={index}
-            className="break-inside-avoid mb-4 overflow-hidden rounded-lg shadow-lg"
+            className="break-inside-avoid mb-3 sm:mb-4 overflow-hidden rounded-lg shadow-lg"
           >
             {/* Image skeleton */}
-            <Skeleton className="w-full h-48" />
+            <Skeleton className="w-full h-32 sm:h-48" />
 
             {/* Card content skeleton */}
-            <div className="p-3 bg-card">
+            <div className="p-2 sm:p-3 bg-card">
               <Skeleton className="h-4 w-full mb-2" />
               <div className="space-y-1 mt-2">
                 <Skeleton className="h-3 w-20" />
@@ -482,9 +482,9 @@ export default function App() {
                 <Skeleton className="h-3 w-28" />
               </div>
               <div className="flex justify-end gap-1 mt-3">
-                <Skeleton className="h-7 w-7 rounded" />
-                <Skeleton className="h-7 w-7 rounded" />
-                <Skeleton className="h-7 w-7 rounded" />
+                <Skeleton className="h-6 w-6 sm:h-7 sm:w-7 rounded" />
+                <Skeleton className="h-6 w-6 sm:h-7 sm:w-7 rounded" />
+                <Skeleton className="h-6 w-6 sm:h-7 sm:w-7 rounded" />
               </div>
             </div>
           </div>
@@ -498,8 +498,8 @@ export default function App() {
   }
 
   return (
-    <div className="p-4 bg-background min-h-screen">
-      <div className="flex justify-between items-center mb-6">
+    <div className="p-2 sm:p-4 bg-background min-h-screen">
+      <div className="flex justify-between items-center mb-4 sm:mb-6">
         <div></div>
         <div className="flex items-center gap-2">
           <Button
@@ -507,10 +507,12 @@ export default function App() {
             disabled={loading}
             variant="outline"
             size="icon"
-            className="h-9 w-9"
+            className="h-8 w-8 sm:h-9 sm:w-9"
           >
             <RefreshCcw
-              className={`h-4 w-4 ${loading ? "animate-spin" : ""}`}
+              className={`h-3 w-3 sm:h-4 sm:w-4 ${
+                loading ? "animate-spin" : ""
+              }`}
             />
           </Button>
           <ModeToggle />
@@ -518,17 +520,17 @@ export default function App() {
       </div>
 
       {images.length > 0 && (
-        <div className="flex flex-wrap items-center gap-4 mb-4 p-3 bg-card rounded-lg">
+        <div className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-2 sm:gap-4 mb-4 p-3 bg-card rounded-lg">
           {/* Sort by */}
-          <div className="flex items-center gap-2">
-            <label className="text-sm font-medium text-foreground">
+          <div className="flex items-center gap-2 w-full sm:w-auto">
+            <label className="text-xs sm:text-sm font-medium text-foreground whitespace-nowrap">
               Sort by:
             </label>
             <Select
               value={sortBy}
               onValueChange={(value) => setSortBy(value as any)}
             >
-              <SelectTrigger className="w-[140px]">
+              <SelectTrigger className="w-full sm:w-[140px] text-xs sm:text-sm">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -542,15 +544,15 @@ export default function App() {
           </div>
 
           {/* Sort Order */}
-          <div className="flex items-center gap-2">
-            <label className="text-sm font-medium text-foreground">
+          <div className="flex items-center gap-2 w-full sm:w-auto">
+            <label className="text-xs sm:text-sm font-medium text-foreground whitespace-nowrap">
               Order:
             </label>
             <Select
               value={sortOrder}
               onValueChange={(value) => setSortOrder(value as any)}
             >
-              <SelectTrigger className="w-[120px]">
+              <SelectTrigger className="w-full sm:w-[120px] text-xs sm:text-sm">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -561,10 +563,12 @@ export default function App() {
           </div>
 
           {/* Filter by Size */}
-          <div className="flex items-center gap-2">
-            <label className="text-sm font-medium text-foreground">Size:</label>
+          <div className="flex items-center gap-2 w-full sm:w-auto">
+            <label className="text-xs sm:text-sm font-medium text-foreground whitespace-nowrap">
+              Size:
+            </label>
             <Select value={selectedSize} onValueChange={setSelectedSize}>
-              <SelectTrigger className="w-[140px]">
+              <SelectTrigger className="w-full sm:w-[140px] text-xs sm:text-sm">
                 <SelectValue placeholder="All sizes" />
               </SelectTrigger>
               <SelectContent>
@@ -579,12 +583,12 @@ export default function App() {
           </div>
 
           {/* Filter by Format */}
-          <div className="flex items-center gap-2">
-            <label className="text-sm font-medium text-foreground">
+          <div className="flex items-center gap-2 w-full sm:w-auto">
+            <label className="text-xs sm:text-sm font-medium text-foreground whitespace-nowrap">
               Format:
             </label>
             <Select value={selectedFormat} onValueChange={setSelectedFormat}>
-              <SelectTrigger className="w-[100px]">
+              <SelectTrigger className="w-full sm:w-[100px] text-xs sm:text-sm">
                 <SelectValue placeholder="All formats" />
               </SelectTrigger>
               <SelectContent>
@@ -602,39 +606,42 @@ export default function App() {
 
       {/* Floating Bulk Actions */}
       {selectedImages.size > 0 && (
-        <div className="fixed bottom-4 left-4 right-4 z-50">
-          <div className="flex items-center gap-3 p-4 bg-background/95 backdrop-blur-sm rounded-lg border border-border shadow-lg">
+        <div className="fixed bottom-2 left-2 right-2 sm:bottom-4 sm:left-4 sm:right-4 z-50">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 p-3 sm:p-4 bg-background/95 backdrop-blur-sm rounded-lg border border-border shadow-lg">
             <div className="flex items-center gap-2">
-              <span className="text-sm font-medium text-foreground">
+              <span className="text-xs sm:text-sm font-medium text-foreground">
                 {selectedImages.size} image
                 {selectedImages.size !== 1 ? "s" : ""} selected
               </span>
             </div>
-            <div className="flex items-center gap-2 ml-auto">
+            <div className="flex flex-wrap items-center gap-2 ml-auto">
               <Button
                 onClick={handleBulkDownload}
                 variant="default"
                 size="sm"
-                className="h-8"
+                className="h-7 sm:h-8 text-xs"
               >
-                <Download className="h-4 w-4 mr-2" />
-                Download All
+                <Download className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
+                <span className="hidden sm:inline">Download All</span>
+                <span className="sm:hidden">Download</span>
               </Button>
               <Button
                 onClick={handleCSVExport}
                 variant="outline"
                 size="sm"
-                className="h-8"
+                className="h-7 sm:h-8 text-xs"
               >
-                CSV Format
+                <span className="hidden sm:inline">CSV Format</span>
+                <span className="sm:hidden">CSV</span>
               </Button>
               <Button
                 onClick={handleJSONExport}
                 variant="outline"
                 size="sm"
-                className="h-8"
+                className="h-7 sm:h-8 text-xs"
               >
-                JSON Format
+                <span className="hidden sm:inline">JSON Format</span>
+                <span className="sm:hidden">JSON</span>
               </Button>
             </div>
           </div>
@@ -642,7 +649,7 @@ export default function App() {
       )}
 
       {images.length > 0 && (
-        <p className="text-sm text-muted-foreground mb-4">
+        <p className="text-xs sm:text-sm text-muted-foreground mb-4">
           Found {images.length} image{images.length !== 1 ? "s" : ""} on this
           page
           {filteredImages.length !== images.length && (
@@ -662,7 +669,7 @@ export default function App() {
       {images.length === 0 && !loading && (
         <div className="text-center py-8">
           <p className="text-muted-foreground">No images found on this page</p>
-          <p className="text-sm text-muted-foreground mt-2">
+          <p className="text-xs sm:text-sm text-muted-foreground mt-2">
             Try navigating to a page with images and click Refresh
           </p>
         </div>
@@ -680,18 +687,18 @@ export default function App() {
           />
           <label
             htmlFor="select-all"
-            className="text-sm font-medium text-foreground"
+            className="text-xs sm:text-sm font-medium text-foreground"
           >
             Select All ({selectedImages.size}/{sortedImages.length})
           </label>
         </div>
       )}
 
-      <div className="columns-2 sm:columns-3 md:columns-4 lg:columns-5 gap-4 space-y-4">
+      <div className="columns-2 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-3 sm:gap-4 space-y-3 sm:space-y-4">
         {sortedImages.map((image) => (
           <div
             key={image.id}
-            className="break-inside-avoid mb-4 overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+            className="break-inside-avoid mb-3 sm:mb-4 overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
           >
             <div className="relative">
               <img
@@ -714,8 +721,8 @@ export default function App() {
                 />
               </div>
             </div>
-            <div className="p-3 bg-card">
-              <p className="text-sm text-muted-foreground truncate">
+            <div className="p-2 sm:p-3 bg-card">
+              <p className="text-xs sm:text-sm text-muted-foreground truncate">
                 {image.alt}
               </p>
               <div className="text-xs text-muted-foreground space-y-1 mt-2">
@@ -731,7 +738,7 @@ export default function App() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="h-7 w-7"
+                  className="h-6 w-6 sm:h-7 sm:w-7"
                   onClick={() => handleDownload(image.url, image.alt)}
                   title="Download image"
                 >
@@ -740,7 +747,7 @@ export default function App() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="h-7 w-7"
+                  className="h-6 w-6 sm:h-7 sm:w-7"
                   onClick={() => handleCopyLink(image.url)}
                   title="Copy image URL"
                 >
@@ -749,7 +756,7 @@ export default function App() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="h-7 w-7"
+                  className="h-6 w-6 sm:h-7 sm:w-7"
                   onClick={() => handleExternalLink(image.url)}
                   title="Open in new tab"
                 >
